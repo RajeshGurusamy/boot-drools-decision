@@ -14,9 +14,12 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Getter
+@Service
 public class RulesCompiler {
 
 	ResourcePatternResolver resourcePatternResolver;

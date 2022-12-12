@@ -22,9 +22,12 @@ public class RulesProcessingService {
 	@Autowired
 	private KieContainer kieContainer;
 	
+	@Autowired
+	private RulesCompiler rulesCompiler;
+	
 	public Customer getInterestRate(Customer req, String service) {
 	
-		StatelessKieSession kSession = kieContainer.newStatelessKieSession();
+		StatelessKieSession kSession = rulesCompiler.getSKieSession();
 		AgendaGroupSetFocusCommand agendaGroup = new AgendaGroupSetFocusCommand(service);
 		List<Command> cmd = new ArrayList<>();
 		cmd.add(CommandFactory.newInsert(req));
